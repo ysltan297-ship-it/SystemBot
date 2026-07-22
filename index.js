@@ -255,25 +255,43 @@ const content = message.content.toLowerCase();
 if (bannedWords.some(word => content.includes(word))) {
   await message.delete();
 
-  const warn = await message.channel.send(
-    `${message.author} تم حذف رسالتك بسبب استخدام ألفاظ غير مناسبة.`
+  // إرسال تقرير للمالك بالخاص
+  const owner = await client.users.fetch(OWNER_ID);
+
+  await owner.send(
+`🚨 مخالفة قذف
+
+👤 العضو: ${message.author.tag}
+🆔 الآيدي: ${message.author.id}
+📍 السيرفر: ${message.guild.name}
+⚠️ السبب: قذف
+🔨 الإجراء: باند`
   );
 
-  setTimeout(() => warn.delete(), 5000);
+  // باند العضو
+  if (message.member.bannable) {
+    await message.member.ban({
+      reason: "قذف"
+    });
+  }
+
   return;
-}
-  const userId = message.author.id;
-  const now = Date.now();
+}  
+const now = Date.now(); 
 
-  let userData = spamUsers.get(userId) || {
-    messages: [],
+const userId = message.author.id;
+
+let userData = spamUsers.get(userId);
+
+if (!userData) {
+  userData = {
+    messages: []
   };
+}
 
-  // الاحتفاظ برسائل آخر 5 ثوانٍ
-  userData.messages = userData.messages.filter(
-    (time) => now - time < 5000
-  );
-
+userData.messages = userData.messages.filter(
+  time => now - time < 5000
+);
   userData.messages.push(now);
   spamUsers.set(userId, userData);
 
