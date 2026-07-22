@@ -282,6 +282,9 @@ if (message.member.bannable) {
     reason: "قذف"
   });
 }
+
+return;
+}
 const now = Date.now(); 
 
 const userId = message.author.id;
