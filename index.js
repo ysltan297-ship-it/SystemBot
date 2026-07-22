@@ -1,5 +1,5 @@
 require("dotenv").config();
-
+const express = require("express");
 const {
   Client,
   GatewayIntentBits,
@@ -391,5 +391,15 @@ client.on(Events.MessageCreate, async (message) => {
   } catch (error) {
     console.error("خطأ في حماية الروابط والصور:", error);
   }
+}); 
+const app = express();
+
+app.get("/", (req, res) => {
+  res.send("Bot is online");
 });
+
+app.listen(process.env.PORT || 3000, () => {
+  console.log("Web server started");
+});
+
 client.login(process.env.TOKEN);
