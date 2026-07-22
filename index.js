@@ -250,7 +250,18 @@ client.on(Events.MessageCreate, async (message) => {
   ) {
     return;
   }
+const content = message.content.toLowerCase();
 
+if (bannedWords.some(word => content.includes(word))) {
+  await message.delete();
+
+  const warn = await message.channel.send(
+    `${message.author} تم حذف رسالتك بسبب استخدام ألفاظ غير مناسبة.`
+  );
+
+  setTimeout(() => warn.delete(), 5000);
+  return;
+}
   const userId = message.author.id;
   const now = Date.now();
 
