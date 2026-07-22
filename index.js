@@ -223,12 +223,12 @@ if (interaction.commandName === "kick")
 const bannedWords = [
   "كس امك",
   "ياقحبه",
-  "اركب عليه ",
+  "اركب عليه",
   "انيك",
   "ياجراج",
   "ياخنيث",
   "مص بس",
-  "كس امكم ",
+  "كس امكم",
   "يابن الكلب",
   "يازبي",
 ];
@@ -250,15 +250,19 @@ client.on(Events.MessageCreate, async (message) => {
   ) {
     return;
   }
+
 const content = message.content.toLowerCase();
 
+if (content.includes("من عمك")) {
+  await message.reply("مطيري 👑");
+}
 if (bannedWords.some(word => content.includes(word))) {
   await message.delete();
 
   // إرسال تقرير للمالك بالخاص
-  const owner = await client.users.fetch(OWNER_ID);
+ const owner = await client.users.fetch(OWNER_ID);
 
-  await owner.send(
+await owner.send(
 `🚨 مخالفة قذف
 
 👤 العضو: ${message.author.tag}
@@ -266,17 +270,18 @@ if (bannedWords.some(word => content.includes(word))) {
 📍 السيرفر: ${message.guild.name}
 ⚠️ السبب: قذف
 🔨 الإجراء: باند`
-  );
+);
 
-  // باند العضو
-  if (message.member.bannable) {
-    await message.member.ban({
-      reason: "قذف"
-    });
-  }
+await message.channel.send(
+  `${message.author} برا بنعولي`
+);
 
-  return;
-}  
+// باند العضو
+if (message.member.bannable) {
+  await message.member.ban({
+    reason: "قذف"
+  });
+}
 const now = Date.now(); 
 
 const userId = message.author.id;
