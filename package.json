@@ -1,0 +1,22 @@
+{
+  "name": "systembot222",
+  "version": "1.0.0",
+  "description": "ENO SystemBot222 - modular Discord shop/community bot",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js",
+    "check": "node --check index.js",
+    "register": "node register.js"
+  },
+  "engines": {
+    "node": ">=18.20.0"
+  },
+  "dependencies": {
+    "@napi-rs/canvas": "^1.0.10",
+    "discord.js": "^14.27.0",
+    "dotenv": "^18.0.5",
+    "express": "^5.1.0"
+  }
+}

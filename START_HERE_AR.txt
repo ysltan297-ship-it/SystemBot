@@ -1,0 +1,38 @@
+SystemBot222 — بداية جديدة
+
+1) من Discord Developer Portal:
+- Create New Application باسم SystemBot222.
+- Bot > Reset Token ثم خذه مرة واحدة وضعه في .env. لا ترسله لأي أحد.
+- فعّل Server Members Intent.
+- فعّل Message Content Intent.
+- Invite Scopes: bot + applications.commands.
+- أثناء الاختبار أعط البوت Administrator لتفادي نقص الصلاحيات، وبعد الاستقرار قلّل الصلاحيات.
+
+2) على الكمبيوتر:
+- انسخ .env.example إلى .env.
+- ضع TOKEN و CLIENT_ID و GUILD_ID.
+- IDs متجر ENO موجودة في المثال، وعدّل فقط ما تغير عندك.
+- لا تستخدم توكن bot الأغاني.
+
+3) التشغيل:
+cd /d C:\Users\YM\SystemBot222
+npm install
+npm run check
+npm start
+
+التسجيل يتم تلقائيًا عند تشغيل البوت.
+
+4) أول اختبار:
+/help
+/ping
+/rating panel
+وفي أي روم تقييم:
+<تقييم>
+
+ملاحظة التقييم:
+بعد اختيار 5/4/3/2/1 تظهر نافذة واحدة فيها «تقييمك». النتيجة النهائية تنزل كصورة واحدة مرتبة، مع نص:
+New Rating Received! from @العميل
+والشعار في أسفل يمين البطاقة.
+
+ملاحظة ألوان أزرار Discord:
+Discord يوفر ألوانًا محدودة للأزرار؛ لذلك 5 = أخضر، 4 = أزرق، 1 = أحمر، و3 يستخدم ستايل رمادي مع لون البرتقالي ظاهر بدقة داخل الصورة.

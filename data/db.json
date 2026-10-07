@@ -1,0 +1,32 @@
+{
+  "config": {
+    "antinlink": false,
+    "antiimage": false,
+    "antiinvite": true,
+    "antispam": true,
+    "antiflood": true,
+    "mentionguard": true,
+    "caps": false,
+    "profanity": true,
+    "welcomeEnabled": false,
+    "automodEnabled": true,
+    "logsEnabled": true,
+    "ticketCounter": 0,
+    "levelEnabled": true,
+    "economyEnabled": true
+  },
+  "users": {},
+  "warnings": {},
+  "afk": {},
+  "tickets": {},
+  "products": [],
+  "ratings": [],
+  "suggestions": [],
+  "polls": {},
+  "giveaways": {},
+  "reminders": [],
+  "reports": [],
+  "tempVoices": {},
+  "notes": {},
+  "invites": {}
+}
